@@ -1,0 +1,60 @@
+/* إعدادات أساسية للصفحة */
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* الحاوية الرئيسية للصفحة */
+.profile-container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* تنسيق العنوان */
+.profile-container h1 {
+    font-size: 2.5rem;
+    color: #1e88e5;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* تنسيق النصوص */
+.profile-container p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* تنسيق الروابط */
+.lesson-link {
+    display: inline-block;
+    background-color: #ffc107;
+    color: #0d47a1;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lesson-link:hover {
+    background-color: #ffca28;
+    color: #fff;
+}
+
+/* تحسين الهوامش والمسافات */
+.profile-container p, .lesson-link {
+    margin: 20px 0;
+}

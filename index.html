@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة عربي ثانوي - تعلم اللغة العربية باحترافية</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #0d47a1;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+    background: var(--secondary-color);
+    padding: 10px 0;  /* تقليل البادينج لتصغير حجم الهيدر */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li {
+    margin-right: 20px; /* نفس المسافة بين كل عنصر */
+}
+
+header .btn {
+    background: none; /* إزالة الخلفية */
+    color: #fff; /* نفس لون النص المستخدم في الروابط */
+    padding: 0; /* إزالة البادينج الإضافي */
+    font-size: 1.1rem; /* تأكد من أن حجم النص نفسه */
+    margin: 0 10px; /* توحيد المسافات بين العناصر */
+    text-decoration: none;
+}
+
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        #showcase {
+            background: linear-gradient(135deg, #323c47, #007aff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .showcase-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: right;
+            gap: 30px;
+        }
+
+        .showcase-text {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .showcase-image {
+            flex: 1;
+            max-width: 50%;
+            text-align: left;
+        }
+
+        .showcase-image img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .showcase-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .showcase-text, .showcase-image {
+                max-width: 100%;
+            }
+
+            .showcase-image img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 0; /* لإزالة الحواف الدائرية */
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color);
+                text-align: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        #showcase h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #showcase p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ffca28;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto;
+        }
+
+        #features {
+            background-color: var(--card-bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        #grades {
+            background-color: var(--bg-color);
+        }
+
+        .grades-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .grade-card {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .grade-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .grade-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        #about {
+            background-color: var(--card-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #contact {
+    background-color: var(--bg-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.fb-btn {
+    background-color: #3b5998;
+}
+
+.wa-btn {
+    background-color: #25d366;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 90%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+    .showcase-image {
+        display: none;
+    }
+}
+
+/* لتنسيق الأزرار في الهيدر مثل باقي الروابط */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    padding: 10px 20px; /* إضافة مساحة للأزرار */
+    border-radius: 5px;  /* إضافة زوايا دائرية */
+}
+
+nav ul li a:hover {
+    background-color: var(--accent-color); /* نفس لون الهوف للقائمة */
+    color: var(--secondary-color);
+}
+
+/* لتنسيق الأزرار في الهيدر */
+.btn {
+    background-color: var(--accent-color); /* نفس لون الأزرار */
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffca28; /* تعديل لون hover */
+    color: #fff;
+}
+
+/* إخفاء القائمة على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        color: #fff;
+    }
+}
+
+#grades {
+    background-color: var(--bg-color);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.grades-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.grade-card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.grade-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.grade-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.grade-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.grade-card p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo"><span>منصة</span> عربي ثانوي</a>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#showcase">الرئيسية</a></li>
+                    <a href="signup.php" class="btn">تسجيل</a>
+                    <a href="login.php" class="btn">تسجيل الدخول</a>
+                    <li><a href="#features">مميزاتنا</a></li>
+                    <li><a href="#about">عن المنصة</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container showcase-content">
+            <div class="showcase-text">
+                <h1>اللغة العربية للمرحلة الثانوية</h1>
+                <p>ادرس معنا واستمتع بدراسة مختلفة أستاذ حسين محمد خبرة أكثر من خمسة عشر عاما في تدريس اللغة العربية الشرح المبسط ، الحل والتدريب ، الاختبارات والتطبيقات ، المراجعة والمتابعة منصة عربي ثانوي ، طريقك نحو التميز</p>
+                <a href="#grades" class="btn">ابدأ رحلة التعلم</a>
+            </div>
+            <div class="showcase-image">
+                <img src="IMG-20240831-WA0015-removebg-preview.png" alt="تعلم اللغة العربية">
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>مميزات المنصة</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>دروس تفاعلية</h3>
+                    <p>محتوى تعليمي مصمم خصيصًا لتناسب المنهج الدراسي للمرحلة الثانوية</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>مجتمع تعليمي</h3>
+                    <p>تواصل مع الطلاب والمعلمين لتبادل الخبرات والمعرفة</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>تعلم في أي وقت</h3>
+                    <p>منصة متوافقة مع جميع الأجهزة للتعلم في أي وقت وأي مكان</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>فيديوهات تعليمية</h3>
+                    <p>شروحات مرئية لتبسيط المفاهيم الصعبة وتعزيز الفهم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="grades">
+    <div class="container">
+        <h2>الصف الدراسي</h2>
+        <div class="grades-container">
+            <div class="grade-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>الصف الأول الثانوي</h3>
+                <p>محتوى دراسي شامل للصف الأول الثانوي.</p>
+            </div>
+            <div class="grade-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>الصف الثاني الثانوي</h3>
+                <p>محتوى دراسي شامل للصف الثاني الثانوي.</p>
+            </div>
+            <div class="grade-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>الصف الثالث الثانوي</h3>
+                <p>محتوى دراسي شامل للصف الثالث الثانوي.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  
+    <section id="about">
+        <div class="container">
+            <h2>عن المنصة</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>
+                    <p>ادرس معنا واستمتع بدراسة مختلفة أستاذ حسين محمد خبرة أكثر من خمسة عشر عاما في تدريس اللغة العربية الشرح المبسط ، الحل والتدريب ، الاختبارات والتطبيقات ، المراجعة والمتابعة منصة عربي ثانوي ، طريقك نحو التميز</p>
+                    </h3>
+                </div>
+                <div class="about-image">
+                    <img src="IMG-20240831-WA0014-removebg-preview.png" alt="عن المنصة">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <div class="contact-buttons">
+                <a href="https://www.facebook.com/profile.php?id=61556935569854" class="btn fb-btn" target="_blank">
+                    <i class="fab fa-facebook"></i> تواصل عبر فيسبوك
+                </a>
+                <a href="https://wa.me/+20 115 768 6707" class="btn wa-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>حقوق النشر © 2024 منصة عربي ثانوي</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navList = document.getElementById('nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
